@@ -7,7 +7,6 @@
 .gradle
 */.gradle/
 */local.properties
-*.properties
 .DS_Store
 /captures
 .externalNativeBuild
