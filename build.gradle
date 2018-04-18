@@ -1,4 +1,7 @@
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
+//在project中配置，所有module都生效
+//config.gradle在project目录下创建
+apply from: "config.gradle"
 
 buildscript {
     

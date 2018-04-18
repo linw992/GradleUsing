@@ -1,4 +1,10 @@
 apply plugin: 'com.android.application'
+//在module中配置，则只在改module下生效
+//config.gradle定义也需要在module目录下创建
+//apply from: "config.gradle"
+
+def androidStr=rootProject.ext.android
+def libs=rootProject.ext.dependencies
 
 android {
 
@@ -9,8 +15,8 @@ android {
         applicationId "com.lin.sampel.gradle"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
-        versionCode 1
-        versionName "1.0"
+        versionCode androidStr.versionCode
+        versionName androidStr.versionName
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
     buildTypes {
@@ -21,10 +27,11 @@ android {
     }
 }
 
+
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation 'com.android.support:appcompat-v7:27.1.1'
-    implementation 'com.android.support.constraint:constraint-layout:1.1.0'
+    implementation libs.constraint
     testImplementation "junit:junit:$junitVersion"
     androidTestImplementation 'com.android.support.test:runner:1.0.1'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.1'

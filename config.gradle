@@ -1,0 +1,18 @@
+/**
+ * def androidStr=rootProject.ext.android
+ * def libs=rootProject.ext.dependencies
+ * versionCode androidStr.versionCode
+ * versionName androidStr.versionName
+ * implementation libs.constraint
+ */
+ext {
+    android = [
+            versionCode      : 1,
+            versionName      : '1.0.0',
+            constraintVersion: '1.1.0',
+    ]
+    dependencies = [
+            "constraint": "com.android.support.constraint:constraint-layout:${android["constraintVersion"]}",
+    ]
+}
+
